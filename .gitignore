@@ -4,3 +4,4 @@
 !.yarn/plugins
 
 dist
+node_modules

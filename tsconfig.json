@@ -1,6 +1,4 @@
 {
-  "include": ["src/*"],
-
   "compilerOptions": {
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */
