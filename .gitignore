@@ -3,5 +3,4 @@
 !.yarn/releases
 !.yarn/plugins
 
-dist
-node_modules
+.vscode

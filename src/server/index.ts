@@ -7,24 +7,18 @@ import htmlMiddleware from './htmlMiddleware'
 
 const app = express()
 
-const __DEV__ = process.env.NODE_ENV !== 'production'
-
-if (__DEV__) {
+if (process.env.NODE_ENV !== 'production') {
   const config = require('../../webpack.dev.js')
   const compiler = webpack(config)
+  const { publicPath } = config
 
-  app.use(
-    webpackDevMiddleware(compiler, {
-      publicPath: config.output.publicPath,
-      stats: 'errors-warnings',
-    })
-  )
+  app.use(webpackDevMiddleware(compiler, { publicPath, logLevel: 'warn' }))
   app.use(webpackHotMiddleware(compiler))
   app.use(htmlMiddleware(compiler))
 }
 
-const PORT = process.env.PORT || 3000
+function start(port: number) {
+  return app.listen(port)
+}
 
-app.listen(PORT, () => {
-  console.log(`Listening on http://localhost:${PORT}\n`)
-})
+export default start
