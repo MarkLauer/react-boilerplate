@@ -6,7 +6,7 @@ const common = require('./webpack.common.js')
 
 module.exports = merge(common, {
   mode: 'development',
-  entry: ['webpack-hot-middleware/client?noInfo=true'],
+  entry: ['webpack-hot-middleware/client?reload=true&noInfo=true'],
   devtool: 'eval-cheap-module-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
