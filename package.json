@@ -12,8 +12,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "fork-ts-checker-webpack-plugin": "^7.2.13",
     "prettier": "^2.7.1",
+    "react-refresh": "^0.14.0",
     "style-loader": "^3.3.1",
     "webpack-dev-server": "^4.9.3"
   },

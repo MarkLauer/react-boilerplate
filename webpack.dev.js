@@ -1,5 +1,6 @@
 const { mergeWithRules } = require("webpack-merge");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 const common = require("./webpack.common.js");
 
@@ -35,5 +36,6 @@ module.exports = mergeWithRules({
         mode: "write-references",
       },
     }),
+    new ReactRefreshWebpackPlugin(),
   ],
 });
