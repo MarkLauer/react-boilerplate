@@ -1,4 +1,5 @@
 const { mergeWithRules } = require("webpack-merge");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 const common = require("./webpack.common.js");
 
@@ -24,4 +25,15 @@ module.exports = mergeWithRules({
       },
     ],
   },
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+        mode: "write-references",
+      },
+    }),
+  ],
 });

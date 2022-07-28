@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
@@ -10,6 +10,11 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: "babel-loader",
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -28,6 +33,9 @@ module.exports = {
         type: "asset/resource",
       },
     ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
   },
   plugins: [new HtmlWebpackPlugin({ template: "./src/assets/index.html" })],
 };
