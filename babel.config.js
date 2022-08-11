@@ -5,7 +5,7 @@ module.exports = function (api) {
     "@babel/preset-typescript",
   ];
 
-  const plugins = [];
+  const plugins = ["babel-plugin-styled-components"];
 
   if (api.env("development")) {
     plugins.push("react-refresh/babel");
